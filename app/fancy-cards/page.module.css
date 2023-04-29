@@ -1,0 +1,11 @@
+.stack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  justify-content: start;
+  align-content: center;
+  align-items: start;
+
+  gap: 2rem;
+}

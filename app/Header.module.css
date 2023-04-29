@@ -1,0 +1,9 @@
+.header {
+  position: sticky;
+  top: 0;
+
+  padding: 1em;
+
+  background-color: var(--background);
+  border-bottom: 1px solid currentColor;
+}

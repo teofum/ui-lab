@@ -1,0 +1,47 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  
+  align-items: start;
+
+  gap: 3rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+
+  padding: 3rem;
+  gap: 3rem;
+
+  border: 1px solid currentcolor;
+}
+
+.verticalContainer {
+  flex-direction: column;
+}
+
+.softContainer { 
+  background-color: #a9d0e5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .softContainer {
+    background-color: #3e3746;
+  }
+}
+
+.funkyContainer {
+  --background: white;
+  --text: black;
+
+  background-color: var(--background);
+  color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+  .funkyContainer {
+    --background: black;
+    --text: white;
+  }
+}

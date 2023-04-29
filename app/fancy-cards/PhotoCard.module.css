@@ -1,0 +1,148 @@
+.card {
+  --bg-color: rgb(225, 225, 225);
+  --bg-blur: 30px;
+  --bg-opacity: 0.35;
+
+  --zoom-length: 200ms;
+  --zoom-timing-function: ease-in-out;
+  --zoom-amount-bg: 1.3;
+  --zoom-amount-img: 1.1;
+}
+
+.card {
+  position: relative;
+
+  background-color: var(--bg-color);
+  color: black;
+
+  border: 1px solid currentcolor;
+
+  overflow: hidden;
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --bg-color: rgb(40, 40, 40);
+    color: rgb(245, 245, 245);
+
+    --bg-opacity: 0.5;
+  }
+}
+
+.bgImage {
+  object-fit: cover;
+
+  position: absolute;
+
+  /* Expand image to avoid white edges from blur */
+  top: calc(var(--bg-blur) * -1);
+  left: calc(var(--bg-blur) * -1);
+  width: calc(100% + var(--bg-blur) * 2);
+  height: calc(100% + var(--bg-blur) * 2);
+
+  opacity: var(--bg-opacity);
+  filter: blur(var(--bg-blur));
+  mix-blend-mode: hard-light;
+
+  transition-property: transform, opacity;
+  transition-duration: var(--zoom-length);
+  transition-timing-function: var(--zoom-timing-function);
+
+  /* Safari breaks if you have transitions on a blurred element without this */
+  will-change: transform, opacity;
+}
+
+.cardContent {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 360px;
+  padding: 1rem;
+}
+
+.imageContainer {
+  display: flex;
+
+  border-top: 1px solid currentcolor;
+  border-bottom: 1px solid currentcolor;
+
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  transition: transform var(--zoom-length) var(--zoom-timing-function);
+}
+
+.title {
+  font-size: 2.5rem;
+  border-bottom: 1px solid currentcolor;
+}
+
+.highlight {
+  font-size: 0.875rem;
+  text-align: right;
+  letter-spacing: 0.125rem;
+
+  margin-bottom: 0.5rem;
+  margin-top: -0.25rem;
+}
+
+.description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 0.75rem;
+}
+
+.action {
+  position: relative;
+
+  text-align: center;
+  line-height: 1;
+
+  padding: 0.5rem 0;
+  margin-top: 0.75rem;
+
+  border-top: 1px solid currentcolor;
+  border-bottom: 1px solid currentcolor;
+}
+
+.action::after {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: currentcolor;
+  opacity: 0.3;
+
+  /* transform-origin: center left; */
+  transform: scaleX(0);
+
+  transition: transform var(--zoom-length) ease-out;
+}
+
+.card:hover .bgImage,
+.card:active .bgImage {
+  transform: scale(var(--zoom-amount-bg));
+  opacity: calc(var(--bg-opacity) + 0.3);
+}
+
+.card:hover .image,
+.card:active .image {
+  transform: scale(var(--zoom-amount-img));
+}
+
+.card:hover .action::after,
+.card:active .action::after {
+  transform: scaleX(1);
+}
