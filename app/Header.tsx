@@ -6,7 +6,7 @@ import { dmMono } from '../styles/fonts';
 
 export default function Header() {
   return (
-    <header className={cn(styles.header, dmMono.className)}>
+    <header className={styles.header}>
       <Link href="/">UI Lab</Link>
     </header>
   );

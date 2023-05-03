@@ -6,4 +6,6 @@
 
   background-color: var(--background);
   border-bottom: 1px solid currentColor;
+
+  z-index: 100;
 }

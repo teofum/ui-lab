@@ -1,0 +1,121 @@
+.container {
+  --accent: hotpink;
+  --transition-length: 150ms;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1.5rem;
+}
+
+.clock {
+  position: relative;
+
+  width: var(--size);
+  height: var(--size);
+
+  background-color: var(--background);
+  border: 2px solid var(--text);
+  border-radius: 50%;
+
+  user-select: none;
+}
+
+.tick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 1px;
+  height: calc(var(--size) / 20);
+
+  background-color: var(--text);
+  opacity: 0.5;
+
+  transform-origin: top center;
+  transform: rotate(var(--angle)) translateY(calc(var(--size) / -2 + 1px));
+}
+
+.hourTick {
+  height: calc(var(--size) / 10);
+  opacity: 1;
+}
+
+.hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(calc(1deg * var(--angle)))
+    translateY(1px);
+}
+
+.hand:not(:active) {
+  transition: transform var(--transition-length) ease;
+}
+
+.hourHand {
+  width: 2px;
+  height: calc(var(--size) * 0.5 - 3.75rem);
+
+  background-color: var(--accent);
+  border-radius: 1px;
+}
+
+.minuteHand {
+  width: 2px;
+  height: calc(var(--size) * 0.5 - 1.25rem);
+
+  background-color: var(--accent);
+  border-radius: 1px;
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
+
+  background-color: var(--background);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  transform: translate(-50%, -50%) rotate(calc(var(--angle) * 180deg));
+
+  transition-property: border-width, transform;
+  transition-duration: var(--transition-length);
+  transition-timing-function: ease;
+
+  cursor: pointer;
+}
+
+.indicatorText {
+  /* transform: scaleX(0); */
+
+  transition: transform var(--transition-length) ease;
+}
+
+.indicator:active {
+  border-width: 2px;
+}
+
+.indicator:active .indicatorText {
+  transform: scaleX(1);
+}
+
+.text {
+  font-size: 2.5rem;
+}

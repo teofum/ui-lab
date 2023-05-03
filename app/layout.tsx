@@ -1,9 +1,11 @@
-import './globals.css';
+import '../styles/globals.css';
+
+import cn from 'classnames';
 
 import Header from './Header';
 
 import styles from './layout.module.css';
-import { dmMono } from '../styles/fonts';
+import { dmMono, dmSerifDisplay, inter } from '../styles/fonts';
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={dmMono.className}>
+      <body
+        className={cn(inter.variable, dmMono.variable, dmSerifDisplay.variable)}
+      >
         <Header />
         <main className={styles.main}>{children}</main>
       </body>

@@ -4,7 +4,7 @@
   
   align-items: start;
 
-  gap: 3rem;
+  gap: 1.5rem;
 }
 
 .container {
@@ -22,7 +22,7 @@
 }
 
 .softContainer { 
-  background-color: #a9d0e5;
+  background-color: #a9e5c4;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,0 +1,110 @@
+.clock {
+  --size: 5rem;
+}
+
+.clock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: calc(var(--size) / 10);
+}
+
+.divider {
+  font-size: calc(var(--size) / 2);
+  line-height: 1em;
+}
+
+.section {
+  position: relative;
+
+  font-size: var(--size);
+  line-height: 1em;
+  height: 1.5em;
+  width: 2ch;
+
+  transform-style: preserve-3d;
+  perspective: calc(var(--size) * 3);
+}
+
+.section::after {
+  content: '';
+
+  position: absolute;
+  top: 48.5%;
+  left: 0;
+  height: 3%;
+  width: 100%;
+
+  background-color: var(--background);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+
+  transform: translateZ(1px);
+}
+
+.flip {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  transform-style: preserve-3d;
+  transform: rotateX(var(--angle));
+  transition: transform calc(500ms * var(--duration)) ease-in-out;
+
+  pointer-events: none;
+}
+
+.flipTop,
+.flipBottom {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+  background-color: var(--background);
+  color: var(--text);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+.flipTop {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 49%, 0% 49%);
+}
+
+.flipBottom {
+  clip-path: polygon(0% 51%, 100% 51%, 100% 100%, 0% 100%);
+  transform: rotateX(180deg) translateZ(0.01px);
+}
+
+.up {
+  top: 0;
+}
+
+.down {
+  bottom: 0;
+}
+
+.up,
+.down {
+  position: absolute;
+
+  left: 0;
+  width: 100%;
+  height: 50%;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
