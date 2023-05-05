@@ -8,6 +8,14 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <Link href="/">UI Lab</Link>
+
+      <a
+        href="https://github.com/teofum/ui-lab"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Github
+      </a>
     </header>
   );
 }
