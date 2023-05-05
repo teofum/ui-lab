@@ -13,6 +13,16 @@ export default function TimePickerPage() {
       />
       <div className={styles.stack}>
         <div className={styles.container}>
+          <ColorPicker.Root mode="hsl">
+            <div className={styles.picker1}>
+              <ColorPicker.HueRing radius={60} />
+              <ColorPicker.Slider channel="saturation" />
+              <ColorPicker.Slider channel="lightness" />
+            </div>
+          </ColorPicker.Root>
+        </div>
+
+        <div className={styles.container}>
           <ColorPicker.Root mode="rgb">
             <div className={styles.picker2}>
               <ColorPicker.Slider orientation="vertical" channel="red" />
@@ -24,10 +34,33 @@ export default function TimePickerPage() {
 
         <div className={styles.container}>
           <ColorPicker.Root mode="hsl">
-            <div className={styles.picker1}>
-              <ColorPicker.HueRing radius={60} />
-              <ColorPicker.Slider channel="saturation" />
-              <ColorPicker.Slider channel="lightness" />
+            <div className={styles.picker2}>
+              <ColorPicker.Slider orientation="vertical" channel="hue" />
+              <ColorPicker.Rectangle
+                channelX="saturation"
+                channelY="lightness"
+              />
+            </div>
+          </ColorPicker.Root>
+        </div>
+
+        <div className={styles.container}>
+          <ColorPicker.Root mode="hsl">
+            <div className={styles.picker2}>
+              <ColorPicker.Slider orientation="vertical" channel="lightness" />
+              <ColorPicker.Rectangle
+                channelX="hue"
+                channelY="saturation"
+              />
+            </div>
+          </ColorPicker.Root>
+        </div>
+
+        <div className={styles.container}>
+          <ColorPicker.Root mode="rgb">
+            <div className={styles.picker2}>
+              <ColorPicker.Slider orientation="vertical" channel="red" />
+              <ColorPicker.Rectangle channelX="green" channelY="blue" />
             </div>
           </ColorPicker.Root>
         </div>

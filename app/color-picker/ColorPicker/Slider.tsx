@@ -1,11 +1,12 @@
 'use client';
 
+import { useCallback, useRef } from 'react';
+import cn from 'classnames';
+
 import useDrag, { isTouch } from '@/hooks/useDrag';
 import { useColorPicker } from './context';
 
 import styles from './Slider.module.css';
-import { useCallback, useRef } from 'react';
-import cn from 'classnames';
 
 function hueGradient(s: number, l: number) {
   return `
@@ -58,8 +59,9 @@ export default function Slider({
       setColor(([rh, gs, bl]) => {
         switch (channel) {
           case 'red':
-          case 'hue':
             return [range, gs, bl];
+          case 'hue':
+            return [range * 360, gs, bl];
           case 'green':
           case 'saturation':
             return [rh, range, bl];

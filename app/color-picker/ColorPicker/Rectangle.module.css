@@ -1,0 +1,35 @@
+.base {
+  position: relative;
+
+  width: var(--width);
+  height: var(--height);
+
+  border: var(--border) solid var(--text);
+  border-radius: calc(2 * var(--border));
+  box-shadow: inset 0px 0px 0px var(--border) var(--background);
+
+  background-image: var(--gradient-y), var(--gradient-x);
+  background-blend-mode: var(--blend-mode-y), normal;
+}
+
+.knob {
+  position: absolute;
+  bottom: calc(-2 * var(--border));
+  left: calc(-2 * var(--border));
+
+  width: calc(var(--knob-size) + var(--border) * 2);
+  height: calc(var(--knob-size) + var(--border) * 2);
+
+  border: var(--border) solid var(--text);
+  border-radius: calc(2 * var(--border));
+  box-shadow: inset 0px 0px 0px var(--border) var(--background);
+
+  background-color: var(--color);
+
+  transform: translate(
+    calc((var(--width) - var(--knob-size)) * var(--slider-x)),
+    calc((var(--height) - var(--knob-size)) * var(--slider-y) * -1)
+  );
+
+  cursor: pointer;
+}
