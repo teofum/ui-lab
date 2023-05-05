@@ -1,0 +1,54 @@
+.slider {
+  position: relative;
+
+  width: var(--length);
+  height: var(--thickness);
+
+  border: var(--border) solid var(--text);
+  border-radius: calc(2 * var(--border));
+  box-shadow: inset 0px 0px 0px var(--border) var(--background);
+
+  background-image: var(--gradient);
+}
+
+.sliderVertical {
+  width: var(--thickness);
+  height: var(--length);
+}
+
+.knob {
+  position: absolute;
+  top: 50%;
+  left: calc(-1 * var(--border));
+
+  --knob-width: calc(0.5 * var(--thickness) + var(--border) * 2);
+  width: var(--knob-width);
+  height: calc(var(--thickness) + var(--border) * 2);
+
+  border: var(--border) solid var(--text);
+  border-radius: calc(2 * var(--border));
+  box-shadow: inset 0px 0px 0px var(--border) var(--background);
+
+  background-color: var(--color);
+
+  transform: translate(
+    calc((var(--length) - var(--knob-width)) * var(--slider)),
+    -50%
+  );
+
+  cursor: pointer;
+}
+
+.sliderVertical .knob {
+  top: unset;
+  left: 50%;
+  bottom: calc(-1 * var(--border));
+
+  width: calc(var(--thickness) + var(--border) * 2);
+  height: var(--knob-width);
+
+  transform: translate(
+    -50%,
+    calc((var(--length) - var(--knob-width)) * var(--slider) * -1)
+  );
+}

@@ -9,6 +9,7 @@ const pages = [
   { name: 'Button Experiments', url: 'buttons' },
   { name: 'Time Picker', url: 'time-picker' },
   { name: 'Flip Clock', url: 'flip-clock' },
+  { name: 'Color Picker', url: 'color-picker' },
 ];
 
 export default function Home() {
