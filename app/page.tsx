@@ -10,6 +10,7 @@ const pages = [
   { name: 'Time Picker', url: 'time-picker' },
   { name: 'Flip Clock', url: 'flip-clock' },
   { name: 'Color Picker', url: 'color-picker' },
+  { name: 'Squircle', url: 'squircle' },
 ];
 
 export default function Home() {
