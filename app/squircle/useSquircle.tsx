@@ -18,8 +18,13 @@ export default function useSquircle(squareness: number) {
   }, [squareness]);
 
   return {
+    '-webkit-mask-image': `url("${url}")`,
     maskImage: `url("${url}")`,
+
+    '-webkit-mask-size': '100% 100%',
     maskSize: '100% 100%',
+
+    '-webkit-mask-repeat': 'no-repeat',
     maskRepeat: 'no-repeat',
   };
 }

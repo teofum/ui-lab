@@ -35,7 +35,11 @@ export default function TimePickerPage() {
           </div>
         </div>
 
-        <Heading type="h2" title="Squircle button" text="" />
+        <Heading
+          type="h2"
+          title="Squircle button"
+          text="A button built with squircle elements at both ends, to prevent stretching the corners and keep the shape consistent between buttons of different sizes."
+        />
         <div className={styles.container}>
           <button className={styles.button}>
             <Squircle squareness={0.7} className={styles.buttonLeft}>
