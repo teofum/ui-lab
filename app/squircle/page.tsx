@@ -1,7 +1,8 @@
 import Heading from '@/components/Heading';
-import Squircle from './Squircle';
+import { Squircle, SquircleButton } from './Squircle';
 
 import styles from './page.module.css';
+import cn from 'classnames';
 
 export default function TimePickerPage() {
   return (
@@ -13,7 +14,7 @@ export default function TimePickerPage() {
       <div className={styles.stack}>
         <div className={styles.container}>
           <div className={styles.shadow}>
-            <Squircle squareness={0.2} className={styles.sample1}>
+            <Squircle squareness={0.25} className={styles.sample1}>
               <span>Sq</span>
             </Squircle>
           </div>
@@ -23,7 +24,7 @@ export default function TimePickerPage() {
             </Squircle>
           </div>
           <div className={styles.shadow}>
-            <Squircle squareness={0.7} className={styles.sample1}>
+            <Squircle squareness={0.75} className={styles.sample1}>
               <span>Sq</span>
             </Squircle>
           </div>
@@ -32,6 +33,39 @@ export default function TimePickerPage() {
               <span>Sq</span>
             </Squircle>
           </div>
+        </div>
+
+        <Heading type="h2" title="Squircle button" text="" />
+        <div className={styles.container}>
+          <button className={styles.button}>
+            <Squircle squareness={0.7} className={styles.buttonLeft}>
+              <Squircle squareness={0.7} />
+            </Squircle>
+            <Squircle squareness={0.7} className={styles.buttonRight}>
+              <Squircle squareness={0.7} />
+            </Squircle>
+            <div className={styles.buttonContent}>Click me!</div>
+          </button>
+
+          <button className={styles.button}>
+            <Squircle squareness={0.7} className={styles.buttonLeft}>
+              <Squircle squareness={0.7} />
+            </Squircle>
+            <Squircle squareness={0.7} className={styles.buttonRight}>
+              <Squircle squareness={0.7} />
+            </Squircle>
+            <div className={styles.buttonContent}>I have some longer text</div>
+          </button>
+
+          <button className={cn(styles.button, styles.outlined)}>
+            <Squircle squareness={0.7} className={styles.buttonLeft}>
+              <Squircle squareness={0.7} />
+            </Squircle>
+            <Squircle squareness={0.7} className={styles.buttonRight}>
+              <Squircle squareness={0.7} />
+            </Squircle>
+            <div className={styles.buttonContent}>I am outlined</div>
+          </button>
         </div>
       </div>
     </>

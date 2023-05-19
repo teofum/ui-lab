@@ -35,11 +35,83 @@
 
   width: 100px;
   height: 100px;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
   font-weight: 500;
   font-family: var(--dm-mono);
+}
+
+.button {
+  --bg: rgb(217, 40, 13);
+  --border-w: 0px;
+  --border-c: transparent;
+  --height: 40px;
+
+  appearance: none;
+  position: relative;
+
+  background-color: transparent;
+  color: white;
+  text-shadow: 0px 1px 5px rgba(255, 255, 255, 0.25);
+  font-family: inherit;
+  line-height: calc(var(--height) - var(--border-w) * 2);
+
+  padding: 0 calc(var(--height) * 0.5);
+  border: none;
+  cursor: pointer;
+}
+
+.button.outlined {
+  --bg: var(--background);
+  --border-w: 1px;
+  --border-c: var(--text);
+}
+
+.button:hover {
+  --bg: rgb(157, 26, 5);
+}
+
+.buttonLeft,
+.buttonRight {
+  position: absolute;
+  top: 0;
+  width: var(--height);
+  height: var(--height);
+
+  background-color: var(--border-c);
+  transition: background-color 150ms ease-in-out;
+}
+
+.buttonLeft {
+  left: 0;
+}
+
+.buttonRight {
+  right: 0;
+}
+
+.buttonContent {
+  position: relative;
+
+  background-color: var(--bg);
+  border-top: var(--border-w) solid var(--border-c);
+  border-bottom: var(--border-w) solid var(--border-c);
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+
+  z-index: 1;
+}
+
+.buttonLeft > div,
+.buttonRight > div {
+  position: absolute;
+  top: var(--border-w);
+  left: var(--border-w);
+  bottom: var(--border-w);
+  right: var(--border-w);
+
+  background-color: var(--bg);
+  transition: background-color 150ms ease-in-out;
 }
